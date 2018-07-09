@@ -26,6 +26,7 @@
 	<script src="https://cdn.bootcss.com/less.js/3.0.4/less.js"></script>
 	<script>
 		(function(){
+			alert(2);
 			document.getElementById("flex").onclick = function(e){
 				this.childNodes.forEach(x => x.classList?x.classList.remove("first"):1)
 				document.title="e: "+e;
@@ -51,5 +52,11 @@
 				first.classList.add(c);
 			}
 		})();
+		window.onload = function(){
+			alert(3);
+		};
+		window.addEventListener('DOMContentLoaded',function(){
+			alert(1);
+		})
 	</script>
 </html>
