@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet/less" type="text/css" href="style.less">
+</head>
+<body>
+	<div id="flex" style="float:left">
+		<div class="first">1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+	</div>
+	<span style="float:left">flex</span>
+	<span id="span">都是 transition:all 0.3s 的情况下, flex 布局不触发 transition 动画</span>
+	<div id="display" style="float:right">
+		<div class="d1">1</div>
+		<div class="d2">2</div>
+		<div class="d3">3</div>
+		<div class="d4">4</div>
+	</div>
+	<span style="float:right">absolute</span>
+
+</body>
+	<script src="https://cdn.bootcss.com/less.js/3.0.4/less.js"></script>
+	<script>
+		(function(){
+			document.getElementById("flex").onclick = function(e){
+				this.childNodes.forEach(x => x.classList?x.classList.remove("first"):1)
+				document.title="e: "+e;
+				let t = e.target;
+				t.classList.add("first");
+			};
+			document.getElementById("display").onclick = function(e){
+				if(e.target==e.currentTarget)return;
+				let first = this.querySelector(".d1");
+				let t = e.target;
+				if(first === t){
+					t.style.transform="scale(1.2)";setTimeout(()=>t.style.transform="scale(1.0)",300);
+					return;
+				}else{
+					first.style.transform = "scale(1.2)";
+					t.style.transform ="scale(0.6)";
+					setTimeout(()=>{t.style.transform="scale(1.0)";first.style.transform="scale(1.0)"},150);
+				}
+				let c = t.classList[0];
+				t.classList.remove(c);
+				t.classList.add("d1");
+				first.classList.remove("d1");
+				first.classList.add(c);
+			}
+		})();
+	</script>
+</html>
