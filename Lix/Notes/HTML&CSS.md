@@ -1,4 +1,5 @@
 ## flex容器父元素
+
 |  容器父元素| *加粗的是default*||
 |--|--|
 |flex-direction| **row** <br> row-reverse <br> column  <br>column-reverse | *排列方向, 类似 float:left 的效果*|
@@ -9,6 +10,7 @@
 |align-content|flex-start <br>flex-end <br>center <br>space-between <br>space-around <br>**stretch**| 多根轴线对齐方式, 若只有1根轴线则不起作用 ![](http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071012.png)|
 
 ## flex 布局思路:
+
 >布局内容数量?
 
 - 单行
